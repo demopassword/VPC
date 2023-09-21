@@ -30,7 +30,7 @@ bastion
 #!/bin/bash
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sed -i 's/#Port 22/Port 2024/g' /etc/ssh/sshd_config
-echo 'passwowrd' | passwd --stdin ec2-user
+echo 'password' | passwd --stdin ec2-user
 systemctl restart sshd
 ```
 
