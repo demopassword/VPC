@@ -9,11 +9,6 @@ Parameters:
     Type: String
     Default: "skills"
 
-  ClusterName:
-    Description: An environment name that is prefixed to resource names
-    Type: String
-    Default: "skills-cluster"
-
   BucketStorage:
     Description: An environment name that is prefixed to resource names
     Type: String
@@ -109,10 +104,6 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub ${EnvironmentName}-public-a
-        - Key: !Sub kubernetes.io/cluster/${ClusterName}
-          Value: "shared"
-        - Key: kubernetes.io/role/elb
-          Value: 1
 
   PublicSubnet2:
     Type: AWS::EC2::Subnet
@@ -124,10 +115,6 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub ${EnvironmentName}-public-b
-        - Key: !Sub kubernetes.io/cluster/${ClusterName}
-          Value: "shared"
-        - Key: kubernetes.io/role/elb
-          Value: 1
 
   PublicSubnet3:
     Type: AWS::EC2::Subnet
@@ -139,10 +126,6 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub ${EnvironmentName}-public-c
-        - Key: !Sub kubernetes.io/cluster/${ClusterName}
-          Value: "shared"
-        - Key: kubernetes.io/role/elb
-          Value: 1
 
   PrivateSubnet1:
     Type: AWS::EC2::Subnet
@@ -154,10 +137,6 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub ${EnvironmentName}-private-a
-        - Key: !Sub kubernetes.io/cluster/${ClusterName}
-          Value: "shared"
-        - Key: kubernetes.io/role/internal-elb
-          Value: 1
 
   PrivateSubnet2:
     Type: AWS::EC2::Subnet
@@ -169,10 +148,6 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub ${EnvironmentName}-private-b
-        - Key: !Sub kubernetes.io/cluster/${ClusterName}
-          Value: "shared"
-        - Key: kubernetes.io/role/internal-elb
-          Value: 1
 
   PrivateSubnet3:
     Type: AWS::EC2::Subnet
@@ -184,10 +159,6 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub ${EnvironmentName}-private-c
-        - Key: !Sub kubernetes.io/cluster/${ClusterName}
-          Value: "shared"
-        - Key: kubernetes.io/role/internal-elb
-          Value: 1
 
 
   DbSubnet1:
